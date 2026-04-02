@@ -1,24 +1,33 @@
-# README
+LunchIn Italy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LunchIn Italy is a web platform for curated networking events, bringing professionals together in real life.
 
-Things you may want to cover:
+🚀 About the Project
+LunchIn focuses on creating meaningful connections through small, structured events in different cities. Instead of endless online scrolling, users meet in person and build real relationships.
+This project is the digital product layer of LunchIn, starting in Italy.
 
-* Ruby version
+🛠️ Tech Stack
+- Ruby on Rails
+- PostgreSQL
+- Tailwind CSS
+- Hotwire (Turbo & Stimulus)
 
-* System dependencies
+✨ Core Features (MVP)
+- City-based event discovery
+- Curated lunch events hosted by ambassadors
+- Participation requests & attendee management
+- Event-based group chats
+- Direct messaging between users
+- Key connections (save important contacts)
+- AI-powered insights & feedback (planned)
 
-* Configuration
+📍 Status
+Currently in development.  
+First version is focused on Italy 🇮🇹
 
-* Database creation
+📌 Vision
+To build a platform that enables real-world connections, meaningful conversations, and a better way of networking.
 
-* Database initialization
+---
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+More updates coming soon 🚀
