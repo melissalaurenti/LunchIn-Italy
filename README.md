@@ -12,6 +12,9 @@ Instead of large, impersonal events, the platform enables:
 
 This project represents the digital product layer of LunchIn, starting in Italy 🇮🇹
 
+### Landing Page
+![Landing](app/assets/images/landing_page.png)
+
 🧠 Concept
 Networking often feels transactional and forced.
 
@@ -21,6 +24,9 @@ LunchIn aims to change that by creating:
 - intentional connections  
 
 **Connect. Converse. Grow Together.**
+
+### City Discovery
+![Cities](app/assets/images/cities.png)
 
 🛠️ Tech Stack
 - Ruby on Rails  
@@ -36,6 +42,9 @@ LunchIn aims to change that by creating:
 - Direct messaging  
 - Key connections (save meaningful contacts)  
 - AI-powered insights & feedback *(planned)*  
+
+### Events
+![Events](app/assets/images/events.png)
 
 📍 Status
 
