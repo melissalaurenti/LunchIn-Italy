@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  event: one
+  kind: MyString
+  rating: 1
+  content: MyText
+  source: MyString
+
+two:
+  user: two
+  event: two
+  kind: MyString
+  rating: 1
+  content: MyText
+  source: MyString

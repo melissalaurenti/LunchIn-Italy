@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  address: MyString
+  status: MyString
+  city: one
+  host: one
+  capacity: 1
+  starts_at: 2026-04-13 15:46:38
+  ends_at: 2026-04-13 15:46:38
+  requires_approval: false
+  visibility: MyString
+
+two:
+  title: MyString
+  description: MyText
+  address: MyString
+  status: MyString
+  city: two
+  host: two
+  capacity: 1
+  starts_at: 2026-04-13 15:46:38
+  ends_at: 2026-04-13 15:46:38
+  requires_approval: false
+  visibility: MyString
