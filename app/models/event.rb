@@ -23,7 +23,7 @@ class Event < ApplicationRecord
   }
 
   enum :visibility, {
-    public: "public",
-    private: "private"
+    visible_public: "public",
+    visible_private: "private"
   }
 end

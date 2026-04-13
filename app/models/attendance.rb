@@ -8,7 +8,7 @@ class Attendance < ApplicationRecord
   enum :status, {
     pending: "pending",
     approved: "approved",
-    declined: "declined"
+    declined: "declined",
     cancelled: "cancelled"
   }
 end
