@@ -1,0 +1,26 @@
+<nav class="flex items-center justify-between px-6 py-4 border-b">
+
+  <!-- Logo -->
+  <div class="text-lg font-semibold">
+    <%= link_to "LunchIn Italy", root_path %>
+  </div>
+
+  <!-- Navigation -->
+  <div class="flex items-center space-x-6 text-sm">
+
+    <%= link_to "Cities", cities_path %>
+    <%= link_to "How It Works", how_it_works_path %>
+    <%= link_to "Events", events_path %>
+    <%= link_to "Matching", matching_path %>
+    <%= link_to "Membership", membership_path %>
+
+    <!-- Language Switch (Placeholder) -->
+    <%= link_to "EN / IT", "#" %>
+
+    <!-- Auth -->
+    <%= link_to "Login", new_user_session_path %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "font-semibold" %>
+
+  </div>
+
+</nav>
