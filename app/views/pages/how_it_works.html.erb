@@ -1,1 +1,114 @@
-<h1>How It Works</h1>
+<div class="bg-white">
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-[#1a2332] to-[#2a3a4f] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl md:text-6xl mb-6">
+        How Lunch<span class="text-green-400">In</span> Works
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        In just 5 simple steps to valuable business connections
+      </p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+
+        <% steps = [
+          ["1", "👤", "Create Your Profile", "Register for free and create your professional profile. Share your industry, interests, and what you're looking for in networking. The more detailed your profile, the better your matches."],
+          ["2", "🔍", "Choose City & Industry", "Select your preferred city in Italy and specify which industries you'd like to network in. Our smart matching approach helps you find relevant professional connections."],
+          ["3", "💬", "Find Your Matches", "Browse your matches and find professionals that align with your goals. Send a message and introduce yourself. Authenticity is key!"],
+          ["4", "📅", "Join Events", "Browse curated events and join the ones that match your interests. From lunch to dinner, brunch to aperitivo, cooking classes to wine tastings – choose your perfect networking setting."],
+          ["5", "✅", "Grow Your Network", "Meet your matches at your chosen event, exchange ideas, and build valuable relationships. CONNECT. CONVERSE. GROW TOGETHER. 🇮🇹"]
+        ] %>
+
+        <% steps.each_with_index do |step, index| %>
+          <div class="flex flex-col <%= index.odd? ? 'md:flex-row-reverse' : 'md:flex-row' %> items-center gap-8">
+            <div class="flex-shrink-0">
+              <div class="bg-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl">
+                <%= step[0] %>
+              </div>
+            </div>
+
+            <div class="flex-1 <%= index.odd? ? 'text-right md:text-left' : '' %>">
+              <div class="flex items-center gap-3 mb-4 <%= index.odd? ? 'justify-end md:justify-start' : '' %>">
+                <span class="text-green-600 text-3xl"><%= step[1] %></span>
+                <h2 class="text-3xl"><%= step[2] %></h2>
+              </div>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                <%= step[3] %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl text-center mb-16">
+        What Makes LunchIn Special
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            ✅
+          </div>
+          <h3 class="text-2xl mb-4">Verified Profiles</h3>
+          <p class="text-gray-700">
+            All profiles are verified to guarantee quality and authenticity.
+            Only real professionals in our network.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            🔍
+          </div>
+          <h3 class="text-2xl mb-4">Smart Matching</h3>
+          <p class="text-gray-700">
+            Our matching considers industry, interests, goals, and location
+            to help you find relevant connections.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            📅
+          </div>
+          <h3 class="text-2xl mb-4">Flexible Event Types</h3>
+          <p class="text-gray-700">
+            From lunch to dinner, brunch to aperitivo, cooking classes to wine tastings –
+            choose the perfect setting for meaningful connections.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-green-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl mb-6">
+        Ready to Get Started?
+      </h2>
+
+      <p class="text-xl mb-8 text-green-50">
+        Become part of the LunchIn community and start your first networking event in Italy
+      </p>
+
+      <%= link_to "Register for Free", new_user_registration_path,
+        class: "inline-block bg-white text-green-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg" %>
+    </div>
+  </section>
+
+</div>

@@ -1,1 +1,268 @@
-<h1>Membership</h1>
+<% memberships = [
+  {
+    id: "free",
+    name: "Free",
+    price: "0€",
+    period: "forever",
+    description: "Perfect to get started",
+    icon: "✨",
+    color: "bg-gray-100",
+    text_color: "text-gray-700",
+    button_color: "bg-gray-600 hover:bg-gray-700",
+    popular: false,
+    features: [
+      ["2 Matches per month", true],
+      ["Event participation", true],
+      ["Basic profile", true],
+      ["Event chat access", true],
+      ["AI assistant limited", true],
+      ["Priority matching", false],
+      ["Unlimited matches", false],
+      ["Advanced filters", false],
+      ["Event preview", false],
+      ["Direct messages", false]
+    ]
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    price: "29€",
+    period: "per month",
+    description: "For active networkers",
+    icon: "⚡",
+    color: "bg-green-50",
+    text_color: "text-green-700",
+    button_color: "bg-green-600 hover:bg-green-700",
+    popular: true,
+    features: [
+      ["Unlimited matches", true],
+      ["All events", true],
+      ["Extended profile", true],
+      ["Event chat & AI support", true],
+      ["AI assistant full", true],
+      ["Priority matching", true],
+      ["Advanced filters", true],
+      ["Event preview", true],
+      ["Direct messages", true],
+      ["Profile boost", false]
+    ]
+  },
+  {
+    id: "business",
+    name: "Business",
+    price: "99€",
+    period: "per month",
+    description: "For companies & teams",
+    icon: "👑",
+    color: "bg-purple-50",
+    text_color: "text-purple-700",
+    button_color: "bg-purple-600 hover:bg-purple-700",
+    popular: false,
+    features: [
+      ["All premium features", true],
+      ["Team accounts up to 5", true],
+      ["Company profile", true],
+      ["Suggest events", true],
+      ["Dedicated support", true],
+      ["Analytics dashboard", true],
+      ["Profile boost", true],
+      ["Branded content", true],
+      ["API access", true],
+      ["Custom integrations", true]
+    ]
+  }
+] %>
+
+<div class="bg-white">
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-[#1a2332] to-[#2a3a4f] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl md:text-6xl mb-6">
+        Choose Your <span class="text-green-400">Membership</span>
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Find the perfect package for your networking goals
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <% memberships.each do |membership| %>
+          <div class="relative rounded-2xl shadow-lg overflow-hidden <%= membership[:popular] ? 'ring-4 ring-green-600 scale-105' : '' %>">
+
+            <% if membership[:popular] %>
+              <div class="absolute top-0 right-0 bg-green-600 text-white px-4 py-1 text-sm rounded-bl-lg">
+                Popular
+              </div>
+            <% end %>
+
+            <div class="<%= membership[:color] %> p-8">
+              <div class="w-16 h-16 <%= membership[:color] %> rounded-xl flex items-center justify-center mb-6 border-2 <%= membership[:popular] ? 'border-green-600' : 'border-gray-300' %> text-3xl">
+                <span class="<%= membership[:text_color] %>"><%= membership[:icon] %></span>
+              </div>
+
+              <h3 class="text-2xl mb-2"><%= membership[:name] %></h3>
+              <p class="text-gray-600 mb-6"><%= membership[:description] %></p>
+
+              <div class="mb-6">
+                <span class="text-5xl"><%= membership[:price] %></span>
+                <span class="text-gray-600 ml-2"><%= membership[:period] %></span>
+              </div>
+
+              <%= link_to membership[:id] == "free" ? "Start for free" : "Upgrade now",
+                new_user_registration_path,
+                class: "block w-full text-center text-white px-6 py-3 rounded-lg transition-colors #{membership[:button_color]}" %>
+            </div>
+
+            <div class="p-8 bg-white">
+              <h4 class="font-semibold mb-4 text-lg">Features:</h4>
+
+              <ul class="space-y-3">
+                <% membership[:features].each do |feature| %>
+                  <li class="flex items-start gap-3">
+                    <% if feature[1] %>
+                      <span class="text-green-600 flex-shrink-0 mt-0.5">✓</span>
+                    <% else %>
+                      <span class="text-gray-300 flex-shrink-0 mt-0.5">✕</span>
+                    <% end %>
+
+                    <span class="<%= feature[1] ? 'text-gray-700' : 'text-gray-400' %>">
+                      <%= feature[0] %>
+                    </span>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Comparison -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl text-center mb-12">All Features Compared</h2>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50 border-b">
+              <tr>
+                <th class="px-6 py-4 text-left">Feature</th>
+                <th class="px-6 py-4 text-center">Free</th>
+                <th class="px-6 py-4 text-center bg-green-50">Premium</th>
+                <th class="px-6 py-4 text-center">Business</th>
+              </tr>
+            </thead>
+
+            <tbody class="divide-y">
+              <tr>
+                <td class="px-6 py-4">Matches per month</td>
+                <td class="px-6 py-4 text-center">2</td>
+                <td class="px-6 py-4 text-center bg-green-50">Unlimited</td>
+                <td class="px-6 py-4 text-center">Unlimited</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">Event participation</td>
+                <td class="px-6 py-4 text-center text-green-600">✓</td>
+                <td class="px-6 py-4 text-center bg-green-50 text-green-600">✓</td>
+                <td class="px-6 py-4 text-center text-green-600">✓</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">AI assistant</td>
+                <td class="px-6 py-4 text-center">Basic</td>
+                <td class="px-6 py-4 text-center bg-green-50">Full</td>
+                <td class="px-6 py-4 text-center">Full + Priority</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">Priority matching</td>
+                <td class="px-6 py-4 text-center text-gray-300">✕</td>
+                <td class="px-6 py-4 text-center bg-green-50 text-green-600">✓</td>
+                <td class="px-6 py-4 text-center text-green-600">✓</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">Team accounts</td>
+                <td class="px-6 py-4 text-center text-gray-300">✕</td>
+                <td class="px-6 py-4 text-center bg-green-50 text-gray-300">✕</td>
+                <td class="px-6 py-4 text-center">Up to 5</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">Analytics dashboard</td>
+                <td class="px-6 py-4 text-center text-gray-300">✕</td>
+                <td class="px-6 py-4 text-center bg-green-50 text-gray-300">✕</td>
+                <td class="px-6 py-4 text-center text-green-600">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl text-center mb-12">Frequently Asked Questions</h2>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h3 class="text-xl mb-3">Can I cancel anytime?</h3>
+          <p class="text-gray-700">
+            Yes, all memberships can be canceled monthly. There are no long-term contracts.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h3 class="text-xl mb-3">Can I upgrade later?</h3>
+          <p class="text-gray-700">
+            Absolutely! You can upgrade from Free to Premium or Business at any time.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h3 class="text-xl mb-3">What happens to my data after cancellation?</h3>
+          <p class="text-gray-700">
+            Your profile remains active for 30 days after cancellation. After that, your data will be deleted in accordance with GDPR.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h3 class="text-xl mb-3">Is there a money-back guarantee?</h3>
+          <p class="text-gray-700">
+            Yes, we offer a 14-day money-back guarantee for Premium and Business memberships.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-green-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl mb-6">Still Have Questions?</h2>
+
+      <p class="text-xl mb-8 text-green-50">
+        Our team is happy to help you choose the right membership for your needs.
+      </p>
+
+      <a href="mailto:info@lunchin.it"
+         class="inline-block bg-white text-green-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+</div>

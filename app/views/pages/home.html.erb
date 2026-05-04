@@ -1,11 +1,345 @@
-<div class="h-screen flex flex-col justify-center items-center text-center">
+<div class="bg-white">
 
-  <h1 class="text-4xl font-bold">
-    LunchIn Italy
-  </h1>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-[#1a2332] via-[#2a3a4f] to-gray-50 text-gray-900 overflow-hidden py-20 md:py-32">
 
-  <p class="mt-3 text-sm tracking-widest text-gray-600">
-    CONNECT. CONVERSE. GROW TOGETHER.
-  </p>
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5"
+      style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_1.65fr] gap-12 items-center">
+
+        <!-- Left Text -->
+        <div class="text-center lg:text-left">
+          <div class="inline-block mb-6">
+            <h1 class="text-6xl md:text-8xl text-white leading-tight whitespace-nowrap">
+              Lunch<span class="text-green-400">In</span> Italy
+              <span class="text-2xl align-super">™</span>
+            </h1>
+          </div>
+
+          <p class="text-xl md:text-2xl text-green-300 mb-8 tracking-wider uppercase whitespace-nowrap">
+            Connect. Converse. Grow together.
+          </p>
+
+          <p class="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto lg:mx-0">
+            Connect with professionals in Italy's major cities.
+            One event, endless opportunities.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <%= link_to new_user_registration_path,
+              class: "bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2 text-lg shadow-lg" do %>
+              Get Started
+              <span class="text-xl leading-none">→</span>
+            <% end %>
+
+            <%= link_to "Learn More", how_it_works_path,
+              class: "bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition-colors text-lg text-center" %>
+          </div>
+        </div>
+
+        <!-- Right Map / Image + Popups -->
+        <div class="relative flex justify-center lg:justify-end h-[600px] overflow-visible">
+
+          <%= image_tag "italy-map.png",
+            class: "w-full lg:w-[900px] max-w-none drop-shadow-2xl object-contain",
+            alt: "Italy map" %>
+
+          <!-- Animated City Popup -->
+          <div id="city-popup"
+               class="absolute opacity-0 scale-0 transition-all duration-700 ease-out -translate-x-1/2 -translate-y-1/2">
+
+            <!-- Small Dot -->
+            <div id="city-dot"
+                 class="absolute left-1/2 top-1/2 w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400 shadow-lg ring-4 ring-green-300/40 opacity-100 scale-100 transition-all duration-500 ease-out">
+            </div>
+
+            <!-- Round City Card -->
+            <div id="city-card"
+                 class="w-52 h-52 md:w-60 md:h-60 rounded-full overflow-hidden shadow-2xl border-[5px] border-white relative opacity-0 scale-75 transition-all duration-700 ease-out animate-float">
+
+              <%= image_tag "rome.jpg",
+                id: "city-image",
+                class: "w-full h-full object-cover",
+                alt: "Roma" %>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30"></div>
+
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-3">
+                <h3 id="city-name" class="text-white font-bold text-lg md:text-xl drop-shadow-lg">
+                  Roma
+                </h3>
+                <p id="city-title" class="text-white/95 text-sm md:text-base mt-1 drop-shadow-md">
+                  The Eternal City
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl mb-4">
+          Why Lunch<span class="text-green-600">In</span>?
+        </h2>
+        <p class="text-xl text-gray-600">
+          Professional networking reimagined
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            👥
+          </div>
+          <h3 class="text-xl mb-3">Smart Matching</h3>
+          <p class="text-gray-600">
+            Find the perfect networking partners based on industry, interests, and goals.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            📍
+          </div>
+          <h3 class="text-xl mb-3">Italian Cities</h3>
+          <p class="text-gray-600">
+            Rome, Milan, Florence, Venice, and more – meet professionals in top locations.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            📅
+          </div>
+          <h3 class="text-xl mb-3">Easy Planning</h3>
+          <p class="text-gray-600">
+            Discover curated lunch events and join meaningful conversations with just a few clicks.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-2xl">
+            ✨
+          </div>
+          <h3 class="text-xl mb-3">Quality First</h3>
+          <p class="text-gray-600">
+            Curated events and intentional communities for valuable connections.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Cities Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl mb-4">Discover Italy's Cities</h2>
+        <p class="text-xl text-gray-600">Where would you like to network?</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <%= link_to "#", class: "group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all block" do %>
+          <div class="aspect-[4/3] relative">
+            <%= image_tag "rome.jpg", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300", alt: "Roma" %>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-2xl mb-1">Roma</h3>
+              <p class="text-gray-300">The Eternal City</p>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to "#", class: "group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all block" do %>
+          <div class="aspect-[4/3] relative">
+            <%= image_tag "milano.jpg", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300", alt: "Milano" %>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-2xl mb-1">Milano</h3>
+              <p class="text-gray-300">Fashion & Business</p>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to "#", class: "group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all block" do %>
+          <div class="aspect-[4/3] relative">
+            <%= image_tag "florenz.jpg", class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300", alt: "Firenze" %>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-2xl mb-1">Firenze</h3>
+              <p class="text-gray-300">Renaissance Jewel</p>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div class="text-center mt-12">
+        <%= link_to cities_path,
+          class: "inline-flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors text-lg" do %>
+          Discover All Cities
+          <span>→</span>
+        <% end %>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-green-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl mb-6">
+        Ready for Your Next Networking Experience?
+      </h2>
+
+      <p class="text-xl mb-8 text-green-50">
+        Join professionals who are already making valuable connections through LunchIn.
+      </p>
+
+      <%= link_to new_user_registration_path,
+        class: "inline-flex items-center gap-2 bg-white text-green-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg" do %>
+        Register for Free
+        <span>→</span>
+      <% end %>
+    </div>
+  </section>
 
 </div>
+
+
+<script>
+  function initCityPopupAnimation() {
+    const popup = document.getElementById("city-popup");
+    const dot = document.getElementById("city-dot");
+    const card = document.getElementById("city-card");
+    const image = document.getElementById("city-image");
+    const name = document.getElementById("city-name");
+    const title = document.getElementById("city-title");
+
+    if (!popup || !dot || !card || !image || !name || !title) return;
+    if (window.cityPopupInterval) clearInterval(window.cityPopupInterval);
+
+    const cities = [
+      {
+        name: "Roma",
+        title: "The Eternal City",
+        image: "<%= asset_path('rome.jpg') %>",
+        position: { top: "56%", left: "48%" }
+      },
+      {
+        name: "Milano",
+        title: "Fashion Capital",
+        image: "<%= asset_path('milano.jpg') %>",
+        position: { top: "16%", left: "44%" }
+      },
+      {
+        name: "Firenze",
+        title: "Renaissance Jewel",
+        image: "<%= asset_path('florenz.jpg') %>",
+        position: { top: "39%", left: "48%" }
+      },
+      {
+        name: "Venezia",
+        title: "City of Canals",
+        image: "<%= asset_path('venedig.jpg') %>",
+        position: { top: "24%", left: "58%" }
+      },
+      {
+        name: "Torino",
+        title: "First Capital",
+        image: "<%= asset_path('turin.jpg') %>",
+        position: { top: "18%", left: "34%" }
+      },
+      {
+        name: "Napoli",
+        title: "Vesuvius City",
+        image: "<%= asset_path('neapel.jpg') %>",
+        position: { top: "68%", left: "52%" }
+      },
+      {
+        name: "Bari",
+        title: "Gateway to Puglia",
+        image: "<%= asset_path('bari.jpg') %>",
+        position: { top: "73%", left: "65%" }
+      },
+      {
+        name: "Bologna",
+        title: "The Learned City",
+        image: "<%= asset_path('Bolognia.jpg') %>",
+        position: { top: "31%", left: "51%" }
+      },
+      {
+        name: "Catania",
+        title: "Sicilian Energy",
+        image: "<%= asset_path('catania.jpg') %>",
+        position: { top: "88%", left: "57%" }
+      }
+    ];
+
+    let currentCityIndex = 0;
+
+    function showCity(city) {
+      popup.classList.remove("opacity-100", "scale-100");
+      popup.classList.add("opacity-0", "scale-0");
+
+      card.classList.remove("opacity-100", "scale-100");
+      card.classList.add("opacity-0", "scale-75");
+
+      dot.classList.remove("opacity-0", "scale-[4]");
+      dot.classList.add("opacity-100", "scale-100");
+
+      setTimeout(() => {
+        image.src = city.image;
+        image.alt = city.name;
+        name.textContent = city.name;
+        title.textContent = city.title;
+
+        popup.style.top = city.position.top;
+        popup.style.left = city.position.left;
+
+        popup.classList.remove("opacity-0", "scale-0");
+        popup.classList.add("opacity-100", "scale-100");
+
+        setTimeout(() => {
+          dot.classList.add("scale-[4]");
+        }, 250);
+
+        setTimeout(() => {
+          dot.classList.add("opacity-0");
+
+          card.classList.remove("opacity-0", "scale-75");
+          card.classList.add("opacity-100", "scale-100");
+        }, 650);
+      }, 500);
+    }
+
+    showCity(cities[currentCityIndex]);
+
+    window.cityPopupInterval = setInterval(() => {
+      currentCityIndex = (currentCityIndex + 1) % cities.length;
+      showCity(cities[currentCityIndex]);
+    }, 4200);
+  }
+
+  document.addEventListener("DOMContentLoaded", initCityPopupAnimation);
+  document.addEventListener("turbo:load", initCityPopupAnimation);
+</script>

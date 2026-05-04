@@ -1,1 +1,179 @@
-<h1>Cities</h1>
+<% cities = [
+  {
+    id: 'roma',
+    name: 'Roma',
+    nameEN: 'Rome',
+    image: 'rome.jpg',
+    members: 450,
+    events: 32,
+    description: 'The Eternal City – where history meets modern business culture',
+    highlights: ['Colosseum', 'Vatican', 'Trevi Fountain', 'Pantheon']
+  },
+  {
+    id: 'milano',
+    name: 'Milano',
+    nameEN: 'Milan',
+    image: 'milano.jpg',
+    members: 680,
+    events: 45,
+    description: 'Italy\'s economic powerhouse and fashion capital',
+    highlights: ['Duomo', 'Galleria', 'La Scala', 'Navigli']
+  },
+  {
+    id: 'firenze',
+    name: 'Firenze',
+    nameEN: 'Florence',
+    image: 'florenz.jpg',
+    members: 280,
+    events: 18,
+    description: 'Renaissance art meets innovative startup scene',
+    highlights: ['Duomo', 'Uffizi', 'Ponte Vecchio']
+  },
+  {
+    id: 'venezia',
+    name: 'Venezia',
+    nameEN: 'Venice',
+    image: 'venedig.jpg',
+    members: 195,
+    events: 12,
+    description: 'Unique charm in the city of canals',
+    highlights: ['San Marco', 'Rialto', 'Grand Canal']
+  },
+  {
+    id: 'napoli',
+    name: 'Napoli',
+    nameEN: 'Naples',
+    image: 'neapel.jpg',
+    members: 320,
+    events: 22,
+    description: 'Vibrant culture by the Gulf of Naples',
+    highlights: ['Vesuvius', 'Historic Center']
+  },
+  {
+    id: 'torino',
+    name: 'Torino',
+    nameEN: 'Turin',
+    image: 'turin.jpg',
+    members: 210,
+    events: 15,
+    description: 'Automotive hub and cultural center',
+    highlights: ['Mole', 'Royal Palace']
+  },
+  {
+    id: 'bologna',
+    name: 'Bologna',
+    nameEN: 'Bologna',
+    image: 'Bolognia.jpg',
+    members: 260,
+    events: 17,
+    description: 'Italy’s food capital and historic university city',
+    highlights: ['Towers', 'Porticoes']
+  },
+  {
+    id: 'bari',
+    name: 'Bari',
+    nameEN: 'Bari',
+    image: 'bari.jpg',
+    members: 180,
+    events: 11,
+    description: 'Gateway to Puglia with a growing community',
+    highlights: ['Old Town', 'Seafront']
+  },
+  {
+    id: 'catania',
+    name: 'Catania',
+    nameEN: 'Catania',
+    image: 'catania.jpg',
+    members: 140,
+    events: 9,
+    description: 'Dynamic Sicilian city at Mount Etna',
+    highlights: ['Etna', 'Fish Market']
+  }
+] %>
+
+<div class="bg-white">
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-[#1a2332] to-[#2a3a4f] text-white py-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl mb-6">
+        Italy's Top <span class="text-green-400">Cities</span>
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Choose your city and start your networking journey
+      </p>
+    </div>
+  </section>
+
+  <!-- Cities Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <% cities.each do |city| %>
+          <%= link_to "#",
+            class: "group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden block" do %>
+
+            <!-- Image -->
+            <div class="relative h-64 overflow-hidden">
+              <%= image_tag city[:image],
+                class: "w-full h-full object-cover group-hover:scale-105 transition duration-300" %>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+              <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm">
+                📍 <%= city[:nameEN] %>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <h2 class="text-2xl mb-2 group-hover:text-green-600 transition">
+                Lunch<span class="text-green-600">In</span> <%= city[:name] %>
+              </h2>
+
+              <p class="text-gray-600 mb-4"><%= city[:description] %></p>
+
+              <div class="flex gap-6 mb-4 text-sm">
+                <div>👥 <%= city[:members] %> Members</div>
+                <div>📈 <%= city[:events] %> Events</div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <% city[:highlights].each do |h| %>
+                  <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
+                    <%= h %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="text-4xl mb-6">
+      Your City Not Listed Yet?
+    </h2>
+
+    <p class="text-xl text-gray-600 mb-8">
+      We're continuously expanding our network. Let us know where you'd like to see LunchIn next.
+    </p>
+
+    <%= link_to "#",
+      class: "bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors text-lg inline-block" do %>
+      Suggest a City
+    <% end %>
+
+  </div>
+</section>
